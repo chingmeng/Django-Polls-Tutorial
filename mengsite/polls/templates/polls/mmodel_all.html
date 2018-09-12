@@ -1,0 +1,111 @@
+{% extends "polls/polls_home.html" %}
+{% load static %}
+
+{% block card_heading %} <h4 id="sectionheading">All profile record</h4>{% endblock %}
+
+{% block card_body %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style-listing.css' %}" />
+
+<div class="row">
+     <div class="card-deck">
+
+{% if entry_list %}
+
+    {% for entry in entry_list %}
+
+        <div class="col-lg-3 cd" id="cd{{ entry.id }}" data-toggle="popover">
+         <img class="img-circle"
+              src="http://buildingontheword.org/wp-content/uploads/2016/08/cat.jpg"
+              width="200"
+              height="150"
+              alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title"><i class="fa fa-anchor" aria-hidden="true"></i>
+                  <a href="{% url 'polls:mview' entry.pk %}">{{ entry.name }}</a></h4>
+                  <br><i>{{ form.name.label_tag }} {{ entry.gender }}</i>
+                  <br><i>{{ form.age.label_tag }} {{ entry.age }}</i>
+                  <br><i>{{ form.email.label_tag }} {{ entry.email }}</i>
+                  <br><i>{{ form.dob.label_tag }} {{ entry.dob }}</i>
+                  <br><i>{{ form.job.label_tag }} {{ entry.job }}</i>
+
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% else %}
+    <p> No polls are available.</p>
+{% endif %}
+
+     </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+   {% block jquery %}
+
+    <!-- loaded popover content -->
+    <ul id="popover-content" class="list-group" style="display: none">
+      <a href="#" class="list-group-item">Edit Event</a>
+      <a href="#" class="list-group-item">Invite Members</a>
+      <a href="#" class="list-group-item">Delete Event</a>
+    </ul>
+
+  <script type="text/javascript">
+
+		// $(".cd").click(function(event) {
+		//     var contentPanelId = $(this).attr("id");
+		//      $("#"+contentPanelId).fadeToggle( "slow", "linear" );
+        // });
+
+         $(".cd").click(function() {
+		    popoverToggle();
+         });
+
+        $(".cd").hover(function(){
+            $(this).css("background-color", "yellow");
+            }, function(){
+            $(this).css("background-color", "inherit");
+        });
+
+        var tmr = 0;
+        var tmr2 = 0;
+        var popOverCount = 0;
+
+
+        // $(".cd").mousedown(function () {
+        //     tmr = setTimeout(popoverToggle, 100);
+        // }).mouseup(function () {
+        //  clearTimeout(tmr);
+        // });
+
+        $('body').on('click', function (e) {
+            //did not click a popover toggle or popover
+            if ($(e.target).data('toggle') !== 'popover'
+                && $(e.target).parents('.popover.in').length === 0) {
+                $('[data-toggle="popover"]').popover('hide');
+                popOverCount = 0;
+            }
+        });
+
+
+        function popoverToggle() {
+              $('[data-toggle="popover"]').popover({
+                    html: true,
+                    content: function() {
+                        return $('#popover-content').html();
+                    }
+                });
+        }
+
+
+
+
+
+	</script>
+
+{% endblock %}

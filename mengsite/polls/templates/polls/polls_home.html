@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+          crossorigin="anonymous">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/polls_home.css' %}" />
+
+
+  </head>
+
+
+  <body data-spy="scroll"
+        style="overflow-y:scroll;"
+        data-target="#mNav"
+        data-offset="0">
+
+    <nav id="mNav" class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+        <a class="navbar-brand" href="#" id="mNavBrand">MyApp</a>
+        <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav nav-pills red mr-auto mSetting">
+            <li class="nav-item active"><a href="{% url 'polls:index' %}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{% url 'polls:mmodel_listview' %}" class="nav-link">Listing</a></li>
+            <li class="nav-item"><a href="{% url 'polls:mmodel_paginator' %}" class="nav-link">Pagination</a></li>
+            <li class="nav-item"><a href="{% url 'polls:mmodel_form' %}" class="nav-link">Form-mModel</a></li>
+            <li class="nav-item"><a href="#footer" class="nav-link">Download The App</a></li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-1">
+          <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email">
+          <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+          <button class="btn btn-success my-2 mr-sm-2 pr-3 pl-3" type="submit">Login</button>
+        </form>
+
+      </div>
+    </nav>
+
+
+   <div class="bg"></div>
+
+    <div>
+       {% block body1 %}{% endblock %}
+
+
+
+    </div>
+
+
+    <div class="container-fluid" id="about">
+           {% block card_heading %}{% endblock %}
+           {% block card_body %}{% endblock %}
+
+            <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe src="https://www.youtube.com/embed/NntQ86FHcMY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+    <div class="footer" id="footer">
+          <div>
+            <h2>Download the app!</h2>
+            <p class="lead">Really, why should I download the app??
+            <p><img id="playstoreicon" src="playstore.png" alt=""></p>
+             <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              Launch demo modal
+            </button>
+          </div>
+
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+
+     {% block jquery %}{% endblock %}
+
+  </body>
+</html>
+
+

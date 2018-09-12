@@ -1,0 +1,64 @@
+https://www.youtube.com/watch?v=loSaH2qvoDY
+
+D:\MengDocs\Coding\Python\PycharmProjects\myDjango>
+
+Make a directory myDjango
+
+In command prompt,
+0. pip install django
+
+1. cd to myDjango
+
+2. django-admin startproject myDjango
+
+3. python manage.py migrate
+
+4. python manage.py runserver, get the address
+...
+Starting development server at http://127.0.0.1:8000/
+...
+
+5. Get the server address and access the site to check if django setup in your web browser
+
+----------------------------------------
+
+Open the project in pycharm
+
+In pycharm, for every project, in venv terminal
+
+0. pip install django
+
+1. python manage.py runserver 
+(No need to create project and do migration, cause already done)
+
+2. Open urls.py, add path('', views.home, name='home') under urlpatterns.
+
+3. Create new views.py and add the following:
+
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'home.html')
+
+4. Create a 'template' directory under the project root folder
+
+5. Create a html files under template
+
+6. Go to settings.py, and under TEMPLATES = {..., type templates in the 'DIRS' field as below:
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'], <<<<<<<<< TYPE HERE!
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+
+7. Start the server, if you has closed it, else go to the website of the server and check if the html page created are showing in the address you access through your web browser.

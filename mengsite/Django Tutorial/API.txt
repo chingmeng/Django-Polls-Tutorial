@@ -1,0 +1,80 @@
+To invoke the Python shell, use this command:
+
+$ python manage.py shell
+
+We’re using this instead of simply typing “python”, because manage.py sets the DJANGO_SETTINGS_MODULE environment variable, which gives Django the Python import path to your mysite/settings.py file.
+
+Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 16:07:46) [MSC v.1900 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from polls.models import Choice, Question
+>>> Question.objects.all()
+<QuerySet []>
+>>> from django.utils import timezone
+
+>>> q = Question(question_text="What's new?", pub_date=timezone.now())
+>>> q.save()
+>>> q.id
+1
+>>> q.question_text
+"What's new?"
+>>> q.pub_date
+datetime.datetime(2018, 6, 7, 9, 53, 52, 836541, tzinfo=<UTC>)
+>>> q.question_text = "What's up?"
+>>> q.save()
+>>> Question.objects.all()
+<QuerySet [<Question: Question object (1)>]>
+>>> q.question_text
+"What's up?"
+
+
+(venv) C:\Users\Meng\PycharmProjects\dJangoTest\mengsite>python manage.py shell
+Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 16:07:46) [MSC v.1900 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from polls.models import Choice, Question
+>>> Question.objects.all()
+<QuerySet [<Question: What's up?>]>
+
+>>> Question.objects.filter(id=0)
+<QuerySet []>
+>>> Question.objects.filter(id=1)
+<QuerySet [<Question: What's up?>]>
+>>> Question.objects.filter(question_text__startswith='What')
+<QuerySet [<Question: What's up?>]>
+>>> from django.utils import timezone
+>>> current_year = timezone.now().year
+>>> Question.objects.get(pub_date__year=current_year)
+<Question: What's up?>
+>>> Question.objects.get(pk=1)
+<Question: What's up?>
+>>> q = Question.objects.get(pk=1)
+>>> q
+<Question: What's up?>
+>>> q.was_published_recently()
+True
+>>> q
+<Question: What's up?>
+>>> q.choice_set.all()
+<QuerySet []>
+>>> q.choice_set.create(choice_text='Not much', votes=0)
+<Choice: Not much>
+>>> q.choice_set.create(choice_text='The sky', votes=0)
+<Choice: The sky>
+>>> q.choice_set.create(choice_text='Just hacking again', votes=0)
+<Choice: Just hacking again>
+>>> c = q.choice_set.create(choice_text='Just hacking again', votes=0)
+>>> c
+<Choice: Just hacking again>
+>>> c.question
+<Question: What's up?>
+>>> Choice.objects.filter(question__pub_date__year=current_year)
+<QuerySet [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>, <Choice: Just hacking again>]>
+>>> q.choice_set.filter(choice_text__startswith="Just hacking")
+<QuerySet [<Choice: Just hacking again>, <Choice: Just hacking again>]>
+>>> q.choice_set.filter(choice_text__startswith="Just hacking")
+<QuerySet [<Choice: Just hacking again>, <Choice: Just hacking again>]>
+>>> q.choice_set.filter(choice_text__startswith="Just hacking").delete()
+(2, {'polls.Choice': 2})
+>>> Choice.objects.all()
+<QuerySet [<Choice: Not much>, <Choice: The sky>]>

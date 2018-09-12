@@ -1,0 +1,24 @@
+{% extends "polls/polls_home.html" %}
+
+{% load static %}
+
+{% block card_body %}
+ <div class="card">
+
+  <img class="card-img-top" src="http://buildingontheword.org/wp-content/uploads/2016/08/cat.jpg" alt="Card image cap">
+
+        <div class="card-body">
+
+          <h4 class="card-title"><i class="fa fa-anchor" aria-hidden="true"></i> {{ mview_details.name }}</h4>
+            <ul>
+                <li><i>{{ mview_details.gender }}</i>
+                <li><i>{{ mview_details.age }}</i>
+                <li><i>{{ mview_details.email }}</i>
+                <li><i>{{ mview_details.dob }}</i>
+                <li><i>{{ mview_details.job }}</i>
+            </ul>
+
+        </div>
+
+ </div>
+{% endblock %}

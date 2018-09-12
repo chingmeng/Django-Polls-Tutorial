@@ -1,0 +1,20 @@
+{% extends "polls/polls_home.html" %}
+
+{% load static %}
+
+{% block card_heading %}
+    <h1>New mModel</h1>
+{% endblock %}
+
+{% block card_body %}
+
+     <form method="POST" class="post-form">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <!--{{ form.as_ul }} ---render as unordered list-->
+         <!--{{ form.as_table }} ---render as table -->
+
+         <Button type="submit" class="save btn btn-default">Save</Button>
+
+ </form>
+{% endblock %}

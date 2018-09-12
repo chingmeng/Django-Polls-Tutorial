@@ -1,0 +1,29 @@
+{% extends "polls/polls_home.html" %}
+
+{% load static %}
+
+{% block card_heading %}
+    <h1>New mModel</h1>
+{% endblock %}
+
+{% block card_body %}
+
+     <form method="POST" class="post-form">
+         {% csrf_token %}
+
+        {% for f in form %}
+         <div class="fieldWrapper">
+            {{ f.errors }}
+            {{ f.label_tag }}
+            <br>{{ f }}
+        </div>
+         <br>
+
+         {% endfor %}
+
+
+
+         <Button type="submit" class="save btn btn-default">Save</Button>
+
+ </form>
+{% endblock %}

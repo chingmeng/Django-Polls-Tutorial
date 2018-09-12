@@ -1,0 +1,68 @@
+.container-fluid {
+    margin-top: 100px;
+    padding: 50px;
+    min-height: 400px;
+    margin-bottom: 170.67px;
+    clear: both;
+  }
+
+  .card-deck {
+    margin: 0 auto;
+  }
+
+  #email {
+    width: 300px;
+  }
+
+  #appSummary {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom :50px;
+  }
+
+  .footer {
+    clear:both;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    background-color:black;
+    color: white;
+    padding: 20px 20px 20px 20px;
+
+  }
+
+  #playstoreicon {
+      width: 200px;
+  }
+
+  body {
+    position: relative;
+    background: url("/static/polls/images/background.jpg") no-repeat;
+    background-size: cover;
+    background-position-y: 30px;
+
+  }
+
+  #mNavBrand {
+    font-size:25px;
+    color:white;
+    text-shadow: #444 0 5px 5px;
+  }
+
+  .nav-pills .nav-link.active,.nav-pills .show>.nav-link {
+      color:grey;
+      background-color:#f6ff00;
+      text-shadow: #444 -1px 1px 1px;
+   }
+
+  .mSetting li a {
+      color: #ffffff;
+      text-shadow: #444 -1px 1px 1px;
+    }
+
+  .mSetting > li > a:hover {
+      color: #FFF59D;
+      text-shadow: #444 -1px 1px 1px;
+    }
+

@@ -1,0 +1,59 @@
+{% extends "polls/polls_home.html" %}
+{% load static %}
+
+{% block card_heading %} <h4>All profile record In Paginator</h4>{% endblock %}
+
+{% block card_body %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style-listing.css' %}" />
+<br>
+<div class="row mx-auto">
+   {% for entry in list %}
+
+        <div class="col-lg-4 col-lg-offset-4 mx-auto ">
+            <div class="text-center">
+         <img class="img-circle"
+              src="http://buildingontheword.org/wp-content/uploads/2016/08/cat.jpg"
+              width="200"
+              height="150"
+              alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title"><i class="fa fa-anchor" aria-hidden="true"></i>
+                  <a href="{% url 'polls:mview' entry.pk %}">{{ entry.name }}</a></h4>
+                  <br><i>{{ form.name.label_tag }} {{ entry.gender }}</i>
+                  <br><i>{{ form.age.label_tag }} {{ entry.age }}</i>
+                  <br><i>{{ form.email.label_tag }} {{ entry.email }}</i>
+                  <br><i>{{ form.dob.label_tag }} {{ entry.dob }}</i>
+                  <br><i>{{ form.job.label_tag }} {{ entry.job }}</i>
+
+            </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+<div class="row justify-content-center">
+         <div class="text-center">
+            <div class="pagination">
+
+            {% if list.has_previous %}
+                <a href="?page=1">&laquo; First | </a>
+                <a href="?page={{ list.previous_page_number }}"> Previous </a>
+            {% endif %}
+
+            <span class="current">
+                | Page {{ list.number }} of {{ list.paginator.num_pages }} |
+            </span>
+
+            {% if list.has_next %}
+                <a href="?page={{ list.next_page_number }}">Next |</a>
+                <a href="?page={{ list.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

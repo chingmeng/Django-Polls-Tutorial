@@ -1,0 +1,40 @@
+{% extends "polls/polls_home.html" %}
+{% load static %}
+
+{% block card_heading %} <h4>Experiment Page</h4>{% endblock %}
+
+{% block card_body %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style-listing.css' %}" />
+<br>
+<div class="row mx-auto">
+
+    <div class="col-lg-12 mx-auto ">
+        <div class="text-center">
+        <div class="card-body">
+              <br><i>Httprequest.path: {{ path }}</i>
+              <br><i>Httprequest.path_info: {{ path_info }}</i>
+              <br><i>Httprequest.body: {{ body }}</i>
+              <br><i>Httprequest.encoding: {{ encoding }}</i>
+              <br><i>Httprequest.content_types: {{ content_types }}</i>
+              <br><i>Httprequest.content_params: {{ content_params }}</i>
+              <br><i>Httprequest.cookies: {{ cookies }}</i>
+              <br><i>Httprequest.host: {{ host }}</i>
+              <br><i>Httprequest.proxy: {{ proxy }}</i>
+              <br><i>Httprequest.port: {{ port }}</i>
+              <br><i>Httprequest.is_secure: {{ is_secure }}</i>
+              <br><i>Httprequest.is_ajax: {{ is_ajax }}</i>
+              <br><i>Httprequest.get_full_path: {{ get_full_path }}</i>
+              <br><i>Httprequest.build_absolute_uri: {{ build_absolute_uri }}</i>
+              <br><i>Httprequest.meta: {{ result }}</i>
+
+
+        </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}

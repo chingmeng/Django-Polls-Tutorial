@@ -1,0 +1,48 @@
+{% extends "polls/polls_home.html" %}
+
+{% load static %}
+
+{% block card_heading %}
+    <h1>New mModel</h1>
+{% endblock %}
+
+{% block card_body %}
+
+     <form method="POST" class="post-form">
+         {% csrf_token %}
+         <div class="fieldWrapper">
+            {{ form.name.errors }}
+            {{ form.name.label_tag }}
+            <br>{{ form.name }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.gender.errors }}
+            {{ form.gender.label_tag }}
+            <br>{{ form.gender }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.age.errors }}
+            {{ form.age.label_tag }}
+            <br>{{ form.age }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.email.errors }}
+            {{ form.email.label_tag }}
+            <br>{{ form.email }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.dob.errors }}
+            {{ form.dob.label_tag }}
+            <br>{{ form.dob }}
+        </div>
+
+
+
+         <Button type="submit" class="save btn btn-default">Save</Button>
+
+ </form>
+{% endblock %}

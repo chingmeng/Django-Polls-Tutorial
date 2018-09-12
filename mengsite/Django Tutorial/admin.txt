@@ -1,0 +1,16 @@
+1. Create an admin user:
+	$ python manage.py createsuperuser
+2. Set your username, email and password
+3. Run server
+4. Go to http://127.0.0.1:8000/admin/
+
+5. Noted polls app are not added, go to polls/ admin.py to register polls app
+
+	from django.contrib import admin
+	from .models import Question
+
+	admin.site.register(Question)
+
+6. You will see the polls app, click on it
+7. You see the list of question added, you can add more if you want.
+8. Click on the question to edit the field define in the model. (Note all the field are now translated to GUI form
