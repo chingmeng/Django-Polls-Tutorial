@@ -5,19 +5,20 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 backcall==0.1.0           # via ipython
-colorama==0.3.9           # via ipython
 decorator==4.3.0          # via ipython, traitlets
 django-debug-toolbar==1.10.1
 django-extensions==2.1.2
 django-seed==0.1.9
-django==2.1.1
+django==2.1.2
 faker==0.9.0              # via django-seed
 ipython-genutils==0.2.0   # via traitlets
 ipython==6.5.0
 jedi==0.12.1              # via ipython
 parso==0.3.1              # via jedi
+pexpect==4.6.0            # via ipython
 pickleshare==0.7.4        # via ipython
 prompt-toolkit==1.0.15    # via ipython
+ptyprocess==0.6.0         # via pexpect
 pygments==2.2.0           # via ipython
 python-dateutil==2.7.3    # via faker
 pytz==2018.5              # via django
