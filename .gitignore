@@ -1,8 +1,25 @@
+# IntelliJ
+*.iml
+.idea/
 
-\.idea/codeStyles/
-
-\.idea/
-
-mengsite/mengsite/__pycache__/
-
+# .gitignore for python project
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
 *.pyc
+*.sqlite3
+media/
+static/
+
+.python-version
+
+drills/
+
+venv/
