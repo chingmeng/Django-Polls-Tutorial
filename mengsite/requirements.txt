@@ -9,7 +9,7 @@ decorator==4.4.0          # via ipython, traitlets
 django-debug-toolbar==2.0
 django-extensions==2.1.9
 django-seed==0.1.9
-django==2.2.3
+django==2.2.10
 faker==1.0.7              # via django-seed
 ipython-genutils==0.2.0   # via traitlets
 ipython==7.6.1
@@ -29,5 +29,5 @@ traitlets==4.3.2          # via ipython
 wcwidth==0.1.7            # via prompt-toolkit
 
 # The following packages are considered to be unsafe in a requirements file:
-# pip==19.1.1
-# setuptools==41.0.1        # via ipython
+# pip
+# setuptools
