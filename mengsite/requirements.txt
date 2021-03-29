@@ -4,30 +4,65 @@
 #
 #    pip-compile requirements.in
 #
-backcall==0.1.0           # via ipython
-decorator==4.4.0          # via ipython, traitlets
+backcall==0.1.0
+    # via ipython
+decorator==4.4.0
+    # via
+    #   ipython
+    #   traitlets
 django-debug-toolbar==2.0
+    # via -r requirements.in
 django-extensions==2.1.9
+    # via -r requirements.in
 django-seed==0.1.9
+    # via -r requirements.in
 django==2.2.3
-faker==1.0.7              # via django-seed
-ipython-genutils==0.2.0   # via traitlets
+    # via
+    #   -r requirements.in
+    #   django-debug-toolbar
+    #   django-seed
+faker==1.0.7
+    # via django-seed
+ipython-genutils==0.2.0
+    # via traitlets
 ipython==7.6.1
-jedi==0.14.0              # via ipython
-parso==0.5.0              # via jedi
-pexpect==4.7.0            # via ipython
-pickleshare==0.7.5        # via ipython
-prompt-toolkit==2.0.9     # via ipython
-ptyprocess==0.6.0         # via pexpect
-pygments==2.4.2           # via ipython
-python-dateutil==2.8.0    # via faker
-pytz==2019.1              # via django
-six==1.12.0               # via django-extensions, faker, prompt-toolkit, python-dateutil, traitlets
-sqlparse==0.3.0           # via django, django-debug-toolbar
-text-unidecode==1.2       # via faker
-traitlets==4.3.2          # via ipython
-wcwidth==0.1.7            # via prompt-toolkit
+    # via -r requirements.in
+jedi==0.14.0
+    # via ipython
+parso==0.5.0
+    # via jedi
+pexpect==4.7.0
+    # via ipython
+pickleshare==0.7.5
+    # via ipython
+prompt-toolkit==2.0.9
+    # via ipython
+ptyprocess==0.6.0
+    # via pexpect
+pygments==2.7.4
+    # via ipython
+python-dateutil==2.8.0
+    # via faker
+pytz==2019.1
+    # via django
+six==1.12.0
+    # via
+    #   django-extensions
+    #   faker
+    #   prompt-toolkit
+    #   python-dateutil
+    #   traitlets
+sqlparse==0.3.0
+    # via
+    #   django
+    #   django-debug-toolbar
+text-unidecode==1.2
+    # via faker
+traitlets==4.3.2
+    # via ipython
+wcwidth==0.1.7
+    # via prompt-toolkit
 
 # The following packages are considered to be unsafe in a requirements file:
-# pip==19.1.1
-# setuptools==41.0.1        # via ipython
+# pip
+# setuptools
